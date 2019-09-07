@@ -1,0 +1,29 @@
+version: "3.7"
+
+volumes:
+  pg:
+  redis:
+
+services:
+
+  metric-app:
+    image: metric-app
+    env_file:
+      - ./etc/.env.metric
+
+  postgres:
+    image: postgres:alpine
+    env_file:
+      - ./etc/.env.metric
+    volumes:
+      - pg:/var/lib/postgresql/data
+      - ./artifacts/postgres:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379:6379
