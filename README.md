@@ -1,4 +1,5 @@
-# sample metric app
+# Sample metric app (Wrong DDD)
+The wrong dependency injection implementation in Go
 
 ## Features
 - **Language**: [golang](https://golang.org/doc/install#install)
